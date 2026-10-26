@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
+      body {
+        padding: 0%;
+        margin: 0%;
+        background-color: black;
+        background-image: url("/image/Alpenglow\ Over\ a\ Glacial\ Mountain\ Valley\ 1.png");
+        background-repeat: no-repeat;
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+      }
+      body::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        mask-image: linear-gradient(
+          to bottom,
+          transparent 0%,
+          transparent 30%,
+          black 100%
+        );
+        -webkit-mask-image: linear-gradient(
+          to bottom,
+          transparent 0%,
+          transparent 30%,
+          black 100%
+        );
+        pointer-events: none;
+      }
+
+      .header {
+        flex-shrink: 0;
+      }
+
+      .herotext {
+        padding: 0px 50px;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 20px;
+      }
+
+      .herotext > h1 {
+        color: var(--Color-1, #fff);
+        font-family: "Manrope", sans-serif;
+        font-size: 70px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        text-transform: capitalize;
+        margin: 0%;
+      }
+      .herotext > h5 {
+        color: var(--Color-1, #fff);
+        font-family: "Manrope", sans-serif;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        text-transform: capitalize;
+        margin: 0%;
+      }
+
+      /* Search form */
+      .search-form {
+        width: min(580px, calc(100% - 80px));
+        height: 40px;
+        box-sizing: border-box;
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+
+        padding: 4px;
+        border: 1px solid rgba(255, 255, 255, 0.85);
+        border-radius: 61px;
+
+        background: rgba(217, 217, 217, 0.18);
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+
+        color: #fff;
+        overflow: hidden;
+      }
+
+      /* Search icon */
+      .search-icon {
+        flex-shrink: 0;
+        margin-left: 20px;
+        opacity: 0.95;
+      }
+
+      /* Input field */
+      .search-form input {
+        flex: 1;
+        min-width: 0;
+        height: 100%;
+
+        padding: 0;
+        border: none;
+        outline: none;
+
+        background: transparent;
+        color: #fff;
+
+        font-family: "Manrope", sans-serif;
+        font-size: 15px;
+        font-weight: 400;
+      }
+
+      .search-form input::placeholder {
+        color: rgba(255, 255, 255, 0.7);
+        opacity: 1;
+      }
+
+      /* Search button */
+      .search-form button {
+        flex-shrink: 0;
+        height: 37px;
+        min-width: 92px;
+
+        padding: 0 22px;
+        border: none;
+        border-radius: 61px;
+
+        background: #08090d;
+        color: #fff;
+
+        font-family: "Manrope", sans-serif;
+        font-size: 15px;
+        font-weight: 500;
+
+        cursor: pointer;
+        transition: background 0.2s ease;
+      }
+
+      .search-form button:hover {
+        background: #24262d;
+      }
+
+      .search-form:focus-within {
+        border-color: #fff;
+        box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.12);
+      }
+
+      /* Small screens */
+      @media (max-width: 480px) {
+        .search-form {
+          width: calc(100% - 32px);
+          gap: 8px;
+        }
+
+        .search-icon {
+          margin-left: 12px;
+        }
+
+        .search-form input {
+          font-size: 13px;
+        }
+
+        .search-form button {
+          min-width: 76px;
+          padding: 0 16px;
+          font-size: 13px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <%- include("partials/header.ejs") %>
+    <div class="herotext">
+      <h1>Explort the new world</h1>
+      <h5>Travel the way you want</h5>
+
+      <form class="search-form" action="/search" method="GET">
+        <svg
+          class="search-icon"
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <circle cx="11" cy="11" r="8"></circle>
+          <path d="m21 21-4.35-4.35"></path>
+        </svg>
+
+        <input
+          type="search"
+          name="place"
+          placeholder="Search your favourite place"
+          aria-label="Search your favourite place"
+          required
+        />
+
+        <button type="submit">Search</button>
+      </form>
+    
+    </div>
+  </body>
+</html>
