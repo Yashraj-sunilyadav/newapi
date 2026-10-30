@@ -14,7 +14,16 @@ app.get('/', (req, res) => {
 });
 
 
+app.post('/search', (req, res) => {
+  console.log(req.body.place); 
+  res.send(`wait till we send the ${req.body.place}  `)
+});
 
+
+app.post('/filter', (req, res) => {
+  
+ res.send(`the filter that is cklciked is ${req.body.region}`)
+});
 
 
 
